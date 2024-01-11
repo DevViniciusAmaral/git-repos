@@ -15,6 +15,9 @@
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		46E1B51CBA1940E8AAADD479 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9851335A013F4F95B9CF531A /* noop-file.swift */; };
+		068D0A05D5BC4627B69BA486 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8F58F99434B328BB3D7EB /* Montserrat-Bold.ttf */; };
+		AE7E13E670864BF18D04269E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40318C05027346B1AE3392DB /* Montserrat-Medium.ttf */; };
+		F1CEA22EDBF4436A9648B8B0 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C2D93876A8040B699A7A5B4 /* Montserrat-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-gitrepos/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		9851335A013F4F95B9CF531A /* noop-file.swift */ = {isa = PBXFileReference; name = "noop-file.swift"; path = "gitrepos/noop-file.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 		FA7912AB28894F349B3F5A3F /* gitrepos-Bridging-Header.h */ = {isa = PBXFileReference; name = "gitrepos-Bridging-Header.h"; path = "gitrepos/gitrepos-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		6DB8F58F99434B328BB3D7EB /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		40318C05027346B1AE3392DB /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; name = "Montserrat-Medium.ttf"; path = "../assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5C2D93876A8040B699A7A5B4 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
+				C4E55C8B91D344219C63D22E /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +142,17 @@
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
+		};
+		C4E55C8B91D344219C63D22E /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				6DB8F58F99434B328BB3D7EB /* Montserrat-Bold.ttf */,
+				40318C05027346B1AE3392DB /* Montserrat-Medium.ttf */,
+				5C2D93876A8040B699A7A5B4 /* Montserrat-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -202,6 +220,9 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				BAD7D4EC0A7541C781B0C66D /* gitrepos-Bridging-Header.h in Resources */,
+				068D0A05D5BC4627B69BA486 /* Montserrat-Bold.ttf in Resources */,
+				AE7E13E670864BF18D04269E /* Montserrat-Medium.ttf in Resources */,
+				F1CEA22EDBF4436A9648B8B0 /* Montserrat-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
