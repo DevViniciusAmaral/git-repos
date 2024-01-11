@@ -6,6 +6,7 @@
       "@assets/*": ["./src/application/assets/*"],
       "@components/*": ["./src/application/components/*"],
       "@hooks/*": ["./src/application/hooks/*"],
+      "@models/*": ["./src/application/models/*"],
       "@screens/*": ["./src/application/screens/*"],
       "@utils/*": ["./src/application/utils/*"]
     }
