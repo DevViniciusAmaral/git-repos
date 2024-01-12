@@ -1,5 +1,5 @@
-import React, { forwardRef, useMemo } from "react";
 import { stylesheet } from "./styles";
+import React, { forwardRef, useMemo } from "react";
 import { useStyles } from "react-native-unistyles";
 import {
   PixelRatio,
@@ -19,6 +19,9 @@ export const TextInput = forwardRef<any, TextInputProps>(
     return (
       <RNTextInput
         ref={ref}
+        autoComplete="off"
+        autoCorrect={false}
+        autoCapitalize="none"
         style={[style, styles.input(fontSize)]}
         placeholderTextColor={theme.colors.placeholder}
         {...rest}

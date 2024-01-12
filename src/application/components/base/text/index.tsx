@@ -15,5 +15,5 @@ export const Text = ({ size = 14, style, ...rest }: TextProps) => {
   const { styles } = useStyles(stylesheet);
   const fontSize = PixelRatio.getFontScale() * size;
 
-  return <RNText style={[style, styles.text(fontSize)]} {...rest} />;
+  return <RNText style={[styles.text(fontSize), style]} {...rest} />;
 };
