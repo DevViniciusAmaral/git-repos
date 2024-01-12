@@ -3,24 +3,27 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npx react-native start --reset-cache",
-    "android": "npx react-native run-android",
-    "ios": "npx react-native run-ios",
-    "web": "expo start --web"
+    "start": "watchman watch-del-all && clear && npx react-native start --reset-cache",
+    "android": "clear && npx react-native run-android",
+    "ios": "clear && npx react-native run-ios",
+    "web": "expo start --web",
+    "clear": "rm -rf node_modules && cd android && ./gradlew clean && cd .. && cd ios && rm -rf Pods && cd .. && yarn && npx pod-install && say completed"
   },
   "dependencies": {
     "axios": "^1.6.5",
     "expo": "~49.0.18",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
+    "lucide-react-native": "^0.309.0",
     "react": "18.2.0",
     "react-native": "0.72.6",
-    "react-native-mmkv": "^2.11.0"
+    "react-native-mmkv": "^2.11.0",
+    "react-native-svg": "13.9.0",
+    "react-native-unistyles": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.14",
-    "babel-plugin-module-resolver": "^5.0.0",
     "react-native-dotenv": "^3.4.9",
     "typescript": "^5.1.3"
   },
