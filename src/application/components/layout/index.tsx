@@ -13,6 +13,7 @@ interface LayoutProps extends ScrollViewProps {
 }
 
 export const Layout = ({
+  style,
   header,
   footer,
   children,
@@ -41,6 +42,7 @@ export const Layout = ({
 
       {scrollEnabled ? (
         <ScrollView
+          style={style}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           {...rest}
@@ -48,7 +50,7 @@ export const Layout = ({
           {children}
         </ScrollView>
       ) : (
-        <View style={styles.contentView} {...rest}>
+        <View style={[style, styles.contentView]} {...rest}>
           {children}
         </View>
       )}
