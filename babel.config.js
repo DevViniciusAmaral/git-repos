@@ -22,6 +22,7 @@ module.exports = function (api) {
             "@hooks": "./src/application/hooks",
             "@models": "./src/application/models",
             "@screens": "./src/application/screens",
+            "@styles": "./src/application/styles",
             "@utils": "./src/application/utils",
           },
         },

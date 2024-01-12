@@ -3,14 +3,15 @@
     "name": "git-repos",
     "slug": "git-repos",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "android": {
       "package": "com.viniciusamaraldev.gitrepos"
     },
     "ios": {
       "bundleIdentifier": "com.viniciusamaraldev.gitrepos"
+    },
+    "experiments": {
+      "tsconfigPaths": true
     }
   }
 }
