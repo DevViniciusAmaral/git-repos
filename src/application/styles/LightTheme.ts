@@ -9,8 +9,8 @@ export const lightTheme = {
     warning: "#F4D35E",
   },
   fonts: {
-    bold: "Montserrat Bold",
-    medium: "Montserrat Medium",
-    regular: "Montserrat Regular",
+    bold: "Montserrat-Bold",
+    medium: "Montserrat-Medium",
+    regular: "Montserrat-Regular",
   },
 } as const;
