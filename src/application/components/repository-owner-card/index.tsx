@@ -25,7 +25,7 @@ export const RepositoryOwnerCard = ({ data }: RepositoryOwnerCardProps) => {
   const { styles, theme } = useStyles(stylesheet);
   const appTheme = UnistylesRuntime.themeName;
 
-  const { handleFavoriteRepository } = useRepositories();
+  const { handleFavoriteRepository, deleteRepository } = useRepositories();
 
   const arrowColor =
     appTheme === "light" ? theme.colors.placeholder : theme.colors.text;
@@ -76,7 +76,7 @@ export const RepositoryOwnerCard = ({ data }: RepositoryOwnerCardProps) => {
 
         <IconButton
           icon={<Trash2 size={20} color={theme.colors.alert} />}
-          onPress={() => {}}
+          onPress={() => deleteRepository(data.owner.name)}
         />
 
         <ArrowRight size={20} color={arrowColor} />

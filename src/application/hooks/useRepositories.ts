@@ -57,7 +57,7 @@ export const useRepositories = () => {
     repositories,
     saveRepository,
     getRepository,
-    delete: deleteRepository,
+    deleteRepository,
     handleFavoriteRepository,
   };
 };
