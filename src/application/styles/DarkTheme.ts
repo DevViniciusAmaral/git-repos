@@ -5,7 +5,7 @@ export const darkTheme = {
     placeholder: "#2D3239",
     border: "#494F5A",
     text: "#F5F5F5",
-    alert: "#DA4167",
+    alert: "#E16684",
     warning: "#F4D35E",
   },
   fonts: {

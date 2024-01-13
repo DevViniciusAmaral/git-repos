@@ -6,7 +6,7 @@ export const lightTheme = {
     border: "#E9E9ED",
     text: "#21252A",
     alert: "#DA4167",
-    warning: "#F4D35E",
+    warning: "#E5B710",
   },
   fonts: {
     bold: "Montserrat-Bold",
