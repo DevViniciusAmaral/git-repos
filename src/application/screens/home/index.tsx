@@ -8,7 +8,7 @@ import { Layout } from "@components/layout";
 import { Divider } from "@components/divider";
 import { SearchBar } from "@components/search-bar";
 import { HeaderApp } from "@components/header-app";
-import { RepositoryCard } from "@components/repository-card";
+import { RepositoryOwnerCard } from "@components/repository-owner-card";
 
 // HOOKS
 import { useMutation } from "react-query";
@@ -25,7 +25,7 @@ export const Home = () => {
 
   const handleOnSearch = useCallback(
     async () => saveRepository(await mutateAsync(inputValue)),
-    [repositories]
+    [repositories, inputValue]
   );
 
   return (
@@ -44,7 +44,7 @@ export const Home = () => {
         keyExtractor={(_, index) => index.toString()}
         contentContainerStyle={{ gap: 16, paddingVertical: 16 }}
         renderItem={({ item }) => (
-          <RepositoryCard data={item as IOwnerRepository} />
+          <RepositoryOwnerCard data={item as IOwnerRepository} />
         )}
       />
     </Layout>
