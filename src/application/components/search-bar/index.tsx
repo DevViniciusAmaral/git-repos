@@ -1,17 +1,19 @@
 import React, { useMemo, useState } from "react";
 import { stylesheet } from "./styles";
 import { UnistylesRuntime, useStyles } from "react-native-unistyles";
-import { StyleProp, View, ViewProps } from "react-native";
+import { ActivityIndicator, StyleProp, View, ViewProps } from "react-native";
 import { TextInput, TextInputProps } from "@components/base/text-input";
 import { IconButton } from "@components/icon-button";
 import { Search } from "lucide-react-native";
 
 interface SearchBarProps extends TextInputProps {
+  isLoading?: boolean;
   containerStyle?: StyleProp<ViewProps>;
   onSearch: () => void;
 }
 
 export const SearchBar = ({
+  isLoading,
   containerStyle,
   onSearch,
   ...rest
@@ -35,7 +37,13 @@ export const SearchBar = ({
       />
       <IconButton
         style={styles.button(inputValue?.length === 0)}
-        icon={<Search size={20} color={iconColor} />}
+        icon={
+          isLoading ? (
+            <ActivityIndicator size="small" color={iconColor} />
+          ) : (
+            <Search size={20} color={iconColor} />
+          )
+        }
         onPress={onSearch}
       />
     </View>
