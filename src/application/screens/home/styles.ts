@@ -2,6 +2,8 @@ import { createStyleSheet } from "react-native-unistyles";
 
 export const stylesheet = createStyleSheet((theme) => ({
   container: {
-    padding: 16,
+    gap: 8,
+    paddingTop: 16,
+    paddingHorizontal: 16,
   },
 }));
