@@ -6,7 +6,7 @@ import { RepositoryContext } from "../contexts/RepositoryContext";
 export const useRepositories = () => {
   const { repositories, setRepositories } = useContext(RepositoryContext);
 
-  const save = (values: IRepository[]) => {
+  const saveRepository = (values: IRepository[]) => {
     const { login: name, avatar_url: photo } = values[0].owner;
 
     const repository = { owner: { name, photo }, repositories: values };
@@ -30,27 +30,33 @@ export const useRepositories = () => {
     githubService.offline.save(repositoryList);
   };
 
-  const handleFavoriteRepository = (owner: string, repositoryId: number) => {
-    const data = repositories.find((repo) => repo.owner.name === owner);
+  const handleFavoriteRepository = (owner: string) => {
+    const repositoryList = repositories.map((repo) => ({
+      ...repo,
+      isFavorite:
+        repo.owner.name === owner ? !repo.isFavorite : repo.isFavorite,
+    }));
 
-    const repositoryList = data.repositories.map((value) => {
-      const isSame = value.id === repositoryId;
-      const isFavorite = isSame ? !value.isFavorite : value.isFavorite;
-      return isSame ? { ...value, isFavorite } : value;
-    });
+    setRepositories(repositoryList);
+    githubService.offline.save(repositoryList);
+  };
 
-    const repository = { ...data, repositories: repositoryList };
-    const newRepositories = repositories.map((value) =>
-      value.owner.name === owner ? repository : value
-    );
+  const getRepository = async (owner: string) => {
+    try {
+      const { data } = await githubService.online.getOwnerRepositories({
+        owner,
+      });
 
-    setRepositories(newRepositories);
-    githubService.offline.save(newRepositories);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   return {
     repositories,
-    save,
+    saveRepository,
+    getRepository,
     delete: deleteRepository,
     handleFavoriteRepository,
   };
