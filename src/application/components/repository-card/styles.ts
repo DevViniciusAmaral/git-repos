@@ -5,17 +5,21 @@ export const stylesheet = createStyleSheet((theme) => ({
     gap: 16,
     padding: 16,
     borderRadius: 8,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
     backgroundColor: theme.colors.border,
   },
 
-  horizontalContainer: (gap: number) => ({
-    gap,
+  horizontalContainer: {
+    gap: 16,
     flexDirection: "row",
     alignItems: "center",
-  }),
+    justifyContent: "space-between",
+  },
+
+  horizontalWrapper: {
+    gap: 4,
+    flexDirection: "row",
+    alignItems: "center",
+  },
 
   imageProfile: {
     width: 50,
@@ -23,11 +27,11 @@ export const stylesheet = createStyleSheet((theme) => ({
     borderRadius: 25,
   },
 
-  textMedium: {
-    fontFamily: theme.fonts.medium,
+  language: {
+    color: theme.colors.secondary,
   },
 
   label: (secondary?: boolean) => ({
-    fontFamily: secondary ? theme.fonts.regular : theme.fonts.medium,
+    fontFamily: secondary ? theme.fonts.medium : theme.fonts.bold,
   }),
 }));

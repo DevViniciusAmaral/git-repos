@@ -1,80 +1,45 @@
 import React from "react";
 import { View } from "react-native";
 import { stylesheet } from "./styles";
-import { IOwnerRepository } from "@models/IRepositoryContext";
-import { useStyles, UnistylesRuntime } from "react-native-unistyles";
+import * as Linking from "expo-linking";
+import { formatDate } from "@utils/Date";
+import { Star } from "lucide-react-native";
+import { IRepository } from "@models/IRepository";
+import { useStyles } from "react-native-unistyles";
 
 // COMPONENTS
-import { Image } from "@components/image";
 import { Text } from "@components/base/text";
-import { IconButton } from "@components/icon-button";
-import { ArrowRight, Trash2, Star } from "lucide-react-native";
-import { useRepositories } from "@hooks/useRepositories";
+import { Button } from "@components/base/button";
 
 interface RepositoryCardProps {
-  data: IOwnerRepository;
+  data: IRepository;
 }
 
 export const RepositoryCard = ({ data }: RepositoryCardProps) => {
   const { styles, theme } = useStyles(stylesheet);
-  const appTheme = UnistylesRuntime.themeName;
-
-  const { handleFavoriteRepository } = useRepositories();
-
-  const arrowColor =
-    appTheme === "light" ? theme.colors.placeholder : theme.colors.text;
-
-  const starColor = data.isFavorite
-    ? theme.colors.warning
-    : appTheme === "light"
-    ? theme.colors.placeholder
-    : theme.colors.text;
-
-  const starStrokeWidth = data.isFavorite ? 0 : 2;
-
-  const starFillColor = data.isFavorite ? starColor : "transparent";
 
   return (
-    <View style={styles.container}>
-      <View style={styles.horizontalContainer(8)}>
-        <Image
-          uri={data.owner.photo}
-          style={styles.imageProfile}
-          imageStyle={{ borderRadius: 25 }}
-        />
+    <Button
+      style={styles.container}
+      onPress={() => Linking.openURL(data.html_url)}
+    >
+      <View style={styles.horizontalContainer}>
+        <Text style={styles.label()}>{data.name}</Text>
+        <Text size={12}>{formatDate(data.created_at, "dd MMM yyyy")}</Text>
+      </View>
 
-        <View>
-          <Text style={styles.label()}>{data.owner.name}</Text>
+      {data.description && (
+        <Text style={styles.label(true)}>{data.description}</Text>
+      )}
 
-          <Text size={12} style={styles.label(true)}>
-            Repositórios: {data.repositories.length}
-          </Text>
+      <View style={styles.horizontalContainer}>
+        <Text style={styles.language}>{data.language}</Text>
+
+        <View style={styles.horizontalWrapper}>
+          <Text>{data.stargazers_count}</Text>
+          <Star size={15} color={theme.colors.warning} />
         </View>
       </View>
-
-      <View style={styles.horizontalContainer(16)}>
-        <IconButton
-          icon={
-            <Star
-              size={20}
-              color={starColor}
-              fill={starFillColor}
-              strokeWidth={starStrokeWidth} 
-            />
-          }
-          onPress={() => handleFavoriteRepository(data.owner.name)}
-        />
-
-        <IconButton
-          icon={<Trash2 size={20} color={theme.colors.alert} />}
-          onPress={() => {}}
-        />
-
-        <IconButton
-          icon={<ArrowRight size={20} color={arrowColor} />}
-          onPress={() => {}}
-        />
-      </View>
-    </View>
+    </Button>
   );
 };
