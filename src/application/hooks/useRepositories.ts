@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Toast from "react-native-toast-message";
 import { IRepository } from "@models/IRepository";
 import { githubService } from "@infrastructure/services/github";
 import { RepositoryContext } from "../contexts/RepositoryContext";
@@ -49,7 +50,11 @@ export const useRepositories = () => {
 
       return data;
     } catch (error) {
-      throw error;
+      Toast.show({
+        type: "error",
+        text1: "Atenção",
+        text2: `Nenhum repositório não encontrado para ${owner}!`,
+      });
     }
   };
 

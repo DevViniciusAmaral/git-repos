@@ -19,14 +19,15 @@ export const Home = () => {
   const { styles } = useStyles(stylesheet);
 
   const { repositories, saveRepository, getRepository } = useRepositories();
-  const { isLoading, mutateAsync } = useMutation(getRepository);
+  const { isLoading, mutateAsync, error } = useMutation(getRepository);
 
   const [inputValue, setInputValue] = useState("");
 
-  const handleOnSearch = useCallback(
-    async () => saveRepository(await mutateAsync(inputValue)),
-    [repositories, inputValue]
-  );
+  const handleOnSearch = useCallback(async () => {
+    try {
+      saveRepository(await mutateAsync(inputValue));
+    } catch (error) {}
+  }, [repositories, inputValue]);
 
   return (
     <Layout paddingTopEnabled style={styles.container} header={<HeaderApp />}>
