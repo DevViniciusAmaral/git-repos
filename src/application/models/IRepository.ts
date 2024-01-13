@@ -80,5 +80,4 @@ export interface IRepository {
   open_issues: number;
   watchers: number;
   default_branch: string;
-  isFavorite?: boolean;
 }
