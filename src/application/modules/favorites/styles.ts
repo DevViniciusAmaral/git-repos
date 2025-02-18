@@ -3,7 +3,15 @@ import { createStyleSheet } from "react-native-unistyles";
 export const stylesheet = createStyleSheet((theme) => ({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    gap: 16,
+    padding: 16,
+  },
+
+  header: {
+    paddingHorizontal: 16,
+  },
+
+  label: {
+    textAlign: "center",
   },
 }));
