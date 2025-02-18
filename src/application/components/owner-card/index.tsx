@@ -7,7 +7,7 @@ import { Text } from "@/application/components/text";
 import { Button } from "@/application/components/button";
 import { ArrowRight, Star, StarOff, Trash2 } from "lucide-react-native";
 
-interface RepositoryCardProps {
+interface OwnerCardProps {
   data: IRepository;
   isLast: boolean;
   onPress: (owner: string) => void;
@@ -15,13 +15,13 @@ interface RepositoryCardProps {
   handleDelete: (owner: string) => void;
 }
 
-export const RepositoryCard = ({
+export const OwnerCard = ({
   data,
   isLast,
   onPress,
   handleFavorite,
   handleDelete,
-}: RepositoryCardProps) => {
+}: OwnerCardProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
   const StarIcon = data.isFavorite ? Star : StarOff;

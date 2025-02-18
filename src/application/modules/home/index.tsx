@@ -6,7 +6,7 @@ import { Layout } from "@/application/components/layout";
 import { Searchbar } from "@/application/components/searchbar";
 import { FlatList, View } from "react-native";
 import { useRepository } from "@/application/hooks/useRepository";
-import { RepositoryCard } from "./components/repository-card";
+import { OwnerCard } from "@/application/components/owner-card";
 import { NavigatorRootProps } from "@/application/routes/NavigatorRootProps";
 
 export const Home = ({
@@ -52,7 +52,7 @@ export const Home = ({
         keyExtractor={(_, index) => index.toString()}
         contentContainerStyle={{ gap: 16, paddingTop: 8 }}
         renderItem={({ item, index }) => (
-          <RepositoryCard
+          <OwnerCard
             data={item}
             isLast={index === repositories.length - 1}
             handleDelete={deleteRepository}
