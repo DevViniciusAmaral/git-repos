@@ -4,8 +4,8 @@ export const darkTheme = {
   colors: {
     primary: {
       default: "#FFFFFF",
-      light: "#EBEBEB",
-      dark: "#CCCCCC",
+      light: "#F5F5F5",
+      dark: "#ADADAD",
     },
     text: "#141414",
   },
