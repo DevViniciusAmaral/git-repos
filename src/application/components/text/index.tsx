@@ -9,7 +9,7 @@ export interface TextProps extends RNTextProps {
 }
 
 export const Text = forwardRef<any, TextProps>(
-  ({ size, family, style, ...rest }, ref) => {
+  ({ size = 14, family = 'regular', style, ...rest }, ref) => {
     const { styles, theme } = useStyles(stylesheet);
 
     const fontFamily = {
