@@ -8,7 +8,7 @@ import { Button } from "../button";
 
 interface SearchbarProps extends TextInputProps {
   containerStyle?: StyleProp<ViewStyle>;
-  onSearch: () => void;
+  onSearch?: () => void;
 }
 
 export const Searchbar = ({
@@ -25,9 +25,11 @@ export const Searchbar = ({
         <TextInput {...rest} style={[styles.input, style]} />
       </View>
 
-      <Button style={styles.button} onPress={onSearch}>
-        <Search size={20} color={theme.colors.primary.default} />
-      </Button>
+      {!!onSearch && (
+        <Button style={styles.button} onPress={onSearch}>
+          <Search size={20} color={theme.colors.primary.default} />
+        </Button>
+      )}
     </View>
   );
 };
