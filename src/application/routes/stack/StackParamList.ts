@@ -1,3 +1,3 @@
 export type StackParamList = {
-  Home: undefined;
+  BottomTabsNavigator: undefined;
 };
