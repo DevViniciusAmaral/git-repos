@@ -51,7 +51,8 @@ export const useRepository = () => {
     setRepositories(
       repositories.map((repo) => ({
         ...repo,
-        isFavorite: repo.owner.login === owner,
+        isFavorite:
+          repo.owner.login === owner ? !repo.isFavorite : repo.isFavorite,
       }))
     );
   };

@@ -5,13 +5,14 @@ import { useStyles } from "react-native-unistyles";
 import { IRepository } from "@/application/models/IRepository";
 import { Text } from "@/application/components/text";
 import { Button } from "@/application/components/button";
-import { ArrowRight, Star, StarOff } from "lucide-react-native";
+import { ArrowRight, Star, StarOff, Trash2 } from "lucide-react-native";
 
 interface RepositoryCardProps {
   data: IRepository;
   isLast: boolean;
   onPress: (owner: string) => void;
   handleFavorite: (owner: string) => void;
+  handleDelete: (owner: string) => void;
 }
 
 export const RepositoryCard = ({
@@ -19,6 +20,7 @@ export const RepositoryCard = ({
   isLast,
   onPress,
   handleFavorite,
+  handleDelete,
 }: RepositoryCardProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
@@ -44,6 +46,10 @@ export const RepositoryCard = ({
         <View style={styles.buttonContainer}>
           <Button onPress={() => handleFavorite(data?.owner?.login)}>
             <StarIcon size={20} color={starColor} fill={starFillColor} />
+          </Button>
+
+          <Button onPress={() => handleDelete(data?.owner?.login)}>
+            <Trash2 size={20} color={theme.colors.text} />
           </Button>
 
           <ArrowRight size={20} color={theme.colors.text} />
