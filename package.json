@@ -2,20 +2,31 @@
   "name": "git-repos",
   "version": "1.0.0",
   "main": "index.js",
+  "author": {
+    "email": "dev.viniciusamaral@gmail.com",
+    "name": "Vinicius Amaral",
+    "url": "https://github.com/DevViniciusAmaral"
+  },
+  "description": "Aplicação mobile de listagem e pesquisa de repositórios do github",
   "scripts": {
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web"
+    "start": "npx react-native start --reset-cache",
+    "android": "npx react-native run-android",
+    "ios": "npx react-native run-ios",
+    "web": "npx react-native start --web"
   },
   "dependencies": {
     "expo": "~52.0.35",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
-    "react-native": "0.76.7"
+    "react-native": "0.76.7",
+    "react-native-unistyles": "^2.20.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@react-native-community/cli": "latest",
+    "@types/react": "~18.3.12",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "typescript": "^5.3.3"
   },
   "private": true
 }

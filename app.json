@@ -1,7 +1,24 @@
 {
   "expo": {
-    "name": "git-repos",
+    "name": "Git Repos",
     "slug": "git-repos",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "owner": "https://github.com/DevViniciusAmaral",
+    "githubUrl": "https://github.com/DevViniciusAmaral/git-repos",
+    "description": "Aplicação mobile de listagem e pesquisa de repositórios do github",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF",
+      "image": "./assets/images/splash.png"
+    },
+    "android": {
+      "package": "com.viniciusamaral.gitrepos"
+    },
+    "ios": {
+      "icon": "./assets/images/icon.png",
+      "bundleIdentifier": "com.viniciusamaral.gitrepos"
+    }
   }
 }

@@ -21,7 +21,7 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
   }
 }
 
-rootProject.name = 'gitrepos'
+rootProject.name = 'Git Repos'
 
 dependencyResolutionManagement {
   versionCatalogs {
