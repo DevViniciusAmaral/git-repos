@@ -13,7 +13,8 @@ export const Home = ({
   navigation,
 }: NavigatorRootProps<"BottomTabsNavigator">) => {
   const { styles } = useStyles(stylesheet);
-  const { repositories, findRepository, saveRepository } = useRepository();
+  const { repositories, findRepository, saveRepository, favoriteRepository } =
+    useRepository();
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -49,6 +50,7 @@ export const Home = ({
           <RepositoryCard
             data={item}
             isLast={index === repositories.length - 1}
+            handleFavorite={favoriteRepository}
             onPress={(login) => navigation.navigate("OwnerDetails", { login })}
           />
         )}

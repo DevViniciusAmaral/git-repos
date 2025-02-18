@@ -13,4 +13,5 @@ export interface IRepository {
     login: string;
   };
   data: IRepositoryData[];
+  isFavorite: boolean;
 }

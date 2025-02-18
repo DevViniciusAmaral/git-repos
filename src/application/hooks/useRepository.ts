@@ -10,6 +10,7 @@ export const useRepository = () => {
       const { data } = await service.list({ owner });
       return {
         owner: data?.at(0)?.owner,
+        isFavorite: false,
         data: data?.map((repo) => ({
           id: repo?.id,
           name: repo?.name,
@@ -34,8 +35,9 @@ export const useRepository = () => {
     else {
       setRepositories(
         repositories.map((repository) => {
-          if (repository.owner.login === data.owner.login) return data;
-          else return repository;
+          data.isFavorite = repository.isFavorite;
+          const isSameOwner = repository.owner.login === data.owner.login;
+          return isSameOwner ? { ...repository, ...data } : repository;
         })
       );
     }
@@ -45,5 +47,20 @@ export const useRepository = () => {
     setRepositories(repositories.filter((repo) => repo.owner.login !== owner));
   };
 
-  return { repositories, findRepository, saveRepository, deleteRepository };
+  const favoriteRepository = (owner: string) => {
+    setRepositories(
+      repositories.map((repo) => ({
+        ...repo,
+        isFavorite: repo.owner.login === owner,
+      }))
+    );
+  };
+
+  return {
+    repositories,
+    findRepository,
+    saveRepository,
+    deleteRepository,
+    favoriteRepository,
+  };
 };

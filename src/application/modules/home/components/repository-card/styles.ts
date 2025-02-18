@@ -33,4 +33,10 @@ export const stylesheet = createStyleSheet((theme) => ({
     borderBottomWidth: isLast ? 0 : 1,
     borderBottomColor: theme.colors.primary.light,
   }),
+
+  buttonContainer: {
+    gap: 16,
+    flexDirection: "row",
+    alignItems: "center",
+  }
 }));
