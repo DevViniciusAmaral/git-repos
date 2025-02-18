@@ -5073,6 +5073,11 @@ react-native-dotenv@^3.4.11:
   dependencies:
     dotenv "^16.4.5"
 
+react-native-safe-area-context@4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.12.0.tgz#17868522a55bbc6757418c94a1b4abdda6b045d9"
+  integrity sha512-ukk5PxcF4p3yu6qMZcmeiZgowhb5AsKRnil54YFUUAXVIS7PJcMHGGC+q44fCiBg44/1AJk5njGMez1m9H0BVQ==
+
 react-native-unistyles@^2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/react-native-unistyles/-/react-native-unistyles-2.20.0.tgz#aba9980926d46654466327d55c3d59dcefab3d4d"
