@@ -1,7 +1,11 @@
 # Git Repos
->> Aplicação mobile de listagem e pesquisa de repositórios do github
+> Aplicação mobile de listagem e pesquisa de repositórios do github
 
-<img src="./assets/images/prints.png" />
+## Light
+<img src="./assets/images/prints_light.png" alt="Telas do app [light mode]" />
+
+## Dark
+<img src="./assets/images/prints_dark.png" alt="Telas do app [dark mode]" />
 
 ## Instalação
 Faça o clone do repositório para sua máquina local
