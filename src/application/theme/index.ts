@@ -1,7 +1,9 @@
+import { storage } from "@/infrastructure/storage";
 import { appThemes } from "./AppThemes";
-import { UnistylesRegistry } from "react-native-unistyles";
+import { UnistylesRegistry, UnistylesThemes } from "react-native-unistyles";
 
 UnistylesRegistry.addThemes(appThemes).addConfig({
-  initialTheme: "light",
+  initialTheme:
+    (storage.getString("theme") as keyof UnistylesThemes) ?? "light",
   adaptiveThemes: true,
 });

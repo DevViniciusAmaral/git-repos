@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { stylesheet } from "./styles";
-import { useStyles } from "react-native-unistyles";
+import { UnistylesRuntime, useStyles } from "react-native-unistyles";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { Home, Settings, Star } from "lucide-react-native";
 
@@ -11,6 +11,9 @@ export const BottomMenu = ({
   state,
 }: BottomTabBarProps) => {
   const { styles, theme } = useStyles(stylesheet);
+
+  const { themeName } = UnistylesRuntime;
+  const isDark = themeName === "dark";
 
   const icons = { Home: Home, Favorites: Star, Settings: Settings };
 
@@ -23,7 +26,12 @@ export const BottomMenu = ({
     <View style={styles.container}>
       {menuList.map(({ name, icon: Icon }, index) => {
         const isActive = state.index === index;
-        const color = isActive ? theme.colors.text : theme.colors.primary.dark;
+        const color = isActive
+          ? theme.colors.text
+          : isDark
+          ? `${theme.colors.text}50`
+          : theme.colors.primary.dark;
+          
         return (
           <TouchableOpacity
             key={name}

@@ -4,7 +4,7 @@ import {
   TextInputProps as RNTextInputProps,
 } from "react-native";
 import { stylesheet } from "./styles";
-import { useStyles } from "react-native-unistyles";
+import { UnistylesRuntime, useStyles } from "react-native-unistyles";
 
 export interface TextInputProps extends RNTextInputProps {
   size?: number;
@@ -13,7 +13,11 @@ export interface TextInputProps extends RNTextInputProps {
 
 export const TextInput = forwardRef<any, TextInputProps>(
   ({ size = 14, family = "regular", style, ...rest }, ref) => {
+    const { themeName } = UnistylesRuntime;
     const { styles, theme } = useStyles(stylesheet);
+
+    const placeholderTextColor =
+      themeName === "light" ? theme.colors.primary.dark : theme.colors.text;
 
     const fontFamily = {
       regular: theme.fonts.regular,
@@ -29,7 +33,7 @@ export const TextInput = forwardRef<any, TextInputProps>(
         autoCorrect={false}
         autoCapitalize="none"
         style={[styles.input(size, fontFamily), style]}
-        placeholderTextColor={theme.colors.primary.dark}
+        placeholderTextColor={placeholderTextColor}
       />
     );
   }

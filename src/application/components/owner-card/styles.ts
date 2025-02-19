@@ -23,9 +23,9 @@ export const stylesheet = createStyleSheet((theme) => ({
     flex: 1,
   },
 
-  label: {
-    color: theme.colors.primary.dark,
-  },
+  label: (isDark: boolean) => ({
+    color: isDark ? `${theme.colors.text}50` : theme.colors.primary.dark,
+  }),
 
   divider: (isLast: boolean) => ({
     width: "85%",
@@ -38,5 +38,5 @@ export const stylesheet = createStyleSheet((theme) => ({
     gap: 16,
     flexDirection: "row",
     alignItems: "center",
-  }
+  },
 }));

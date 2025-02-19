@@ -3,11 +3,11 @@ import { fonts } from "./Fonts";
 export const darkTheme = {
   colors: {
     primary: {
-      default: "#FFFFFF",
-      light: "#F5F5F5",
-      dark: "#ADADAD",
+      default: "#1F1F1F",
+      light: "#292929",
+      dark: "#141414",
     },
-    text: "#141414",
+    text: "#F5F5F5",
   },
   fonts,
 } as const;

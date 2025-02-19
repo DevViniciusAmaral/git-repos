@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, View } from "react-native";
 import { stylesheet } from "./styles";
-import { useStyles } from "react-native-unistyles";
+import { UnistylesRuntime, useStyles } from "react-native-unistyles";
 import { IRepository } from "@/application/models/IRepository";
 import { Text } from "@/application/components/text";
 import { Button } from "@/application/components/button";
@@ -23,6 +23,9 @@ export const OwnerCard = ({
   handleDelete,
 }: OwnerCardProps) => {
   const { styles, theme } = useStyles(stylesheet);
+  
+  const { themeName } = UnistylesRuntime;
+  const isDark = themeName === "dark";
 
   const StarIcon = data.isFavorite ? Star : StarOff;
   const starColor = data.isFavorite
@@ -40,7 +43,9 @@ export const OwnerCard = ({
 
         <View style={styles.content}>
           <Text family="medium">{data?.owner?.login}</Text>
-          <Text style={styles.label}>{data?.data?.length} Repositórios</Text>
+          <Text style={styles.label(isDark)}>
+            {data?.data?.length} Repositórios
+          </Text>
         </View>
 
         <View style={styles.buttonContainer}>

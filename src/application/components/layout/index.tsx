@@ -9,7 +9,7 @@ import {
   Platform,
   KeyboardAvoidingView,
 } from "react-native";
-import { useStyles } from "react-native-unistyles";
+import { UnistylesRuntime, useStyles } from "react-native-unistyles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 
@@ -37,6 +37,10 @@ export const Layout = ({
   const { top, bottom } = useSafeAreaInsets();
   const { styles, theme } = useStyles(stylesheet);
 
+  const { themeName } = UnistylesRuntime;
+  const isDark = themeName === "dark";
+  const statusBarStyle = isDark ? "light" : "dark";
+
   const isAndroid = Platform.OS === "android";
   const behavior = isAndroid ? "height" : "padding";
   const paddingTop = enablePaddingTop ? (isAndroid ? top + 16 : top) : 0;
@@ -47,7 +51,10 @@ export const Layout = ({
       behavior={behavior}
       style={[styles.container(paddingTop, bottom), containerStyle]}
     >
-      <StatusBar style="dark" backgroundColor={theme.colors.primary.default} />
+      <StatusBar
+        style={statusBarStyle}
+        backgroundColor={theme.colors.primary.default}
+      />
 
       {header && <View style={[styles.default, headerStyle]}>{header}</View>}
 
